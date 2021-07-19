@@ -1,9 +1,35 @@
 {
   "name": "tr-ui",
   "version": "0.1.0",
+  "description": "A design UI libarary for React",
+  "main": "lib/index.js",
+  "module": "esm/index.js",
+  "author": "kent99821",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url":"git+https://github.com/kent99821/tr-ui.git"
+  },
+  "bugs":{
+    "url": "https://github.com/kent99821/tr-ui/issues"
+  },
+  "files": [
+    "esm",
+    "lib"
+  ],
+  "homepage": "https://github.com/kent99821/tr-ui/issues#readme",
+  "keywords": [
+    "tr-ui",
+    "react",
+    "react-component",
+    "component",
+    "components",
+    "ui",
+    "framework",
+    "frontend"
+  ],
   "private": true,
   "dependencies": {
-    "@babel/core": "7.12.3",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@svgr/webpack": "5.5.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -71,7 +97,11 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js"
+    "test": "node scripts/test.js",
+    "build:commonjs": "cross-env BABEL_OUTPUT=commonjs babel src/components --out-dir lib/ --ignore **/__tests__,**/__mocks__",
+    "build:esm": "babel src/components --out-dir esm/ --ignore **/__tests__,**/__mocks__",
+    "copy-css:esm": "cpx \"src/components/**/*.css\" esm",
+    "copy-css:lib": "cpx \"src/components/**/*.css\" lib"
   },
   "eslintConfig": {
     "extends": [
@@ -143,9 +173,14 @@
     ],
     "resetMocks": true
   },
-  "babel": {
-    "presets": [
-      "react-app"
-    ]
+
+  "devDependencies": {
+    "@babel/cli": "^7.14.5",
+    "@babel/core": "^7.14.6",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/preset-env": "^7.14.7",
+    "@babel/preset-react": "^7.14.5",
+    "cpx": "^1.5.0",
+    "cross-env": "^7.0.3"
   }
 }
