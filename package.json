@@ -8,9 +8,9 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url":"git+https://github.com/kent99821/tr-ui.git"
+    "url": "git+https://github.com/kent99821/tr-ui.git"
   },
-  "bugs":{
+  "bugs": {
     "url": "https://github.com/kent99821/tr-ui/issues"
   },
   "files": [
@@ -30,6 +30,7 @@
   ],
   "private": true,
   "dependencies": {
+    "@emotion/core": "^11.0.0",
     "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
     "@svgr/webpack": "5.5.0",
     "@testing-library/jest-dom": "^5.14.1",
@@ -46,6 +47,7 @@
     "camelcase": "^6.1.0",
     "case-sensitive-paths-webpack-plugin": "2.3.0",
     "css-loader": "4.3.0",
+    "docz-theme-default": "^1.2.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
     "eslint": "^7.11.0",
@@ -101,7 +103,9 @@
     "build:commonjs": "cross-env BABEL_OUTPUT=commonjs babel src/components --out-dir lib/ --ignore **/__tests__,**/__mocks__",
     "build:esm": "babel src/components --out-dir esm/ --ignore **/__tests__,**/__mocks__",
     "copy-css:esm": "cpx \"src/components/**/*.css\" esm",
-    "copy-css:lib": "cpx \"src/components/**/*.css\" lib"
+    "copy-css:lib": "cpx \"src/components/**/*.css\" lib",
+    "docz:dev": "docz dev",
+    "docz:build": "docz build"
   },
   "eslintConfig": {
     "extends": [
@@ -173,14 +177,16 @@
     ],
     "resetMocks": true
   },
-
   "devDependencies": {
     "@babel/cli": "^7.14.5",
     "@babel/core": "^7.14.6",
     "@babel/plugin-proposal-class-properties": "^7.14.5",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
+    "@emotion/react": "^11.4.0",
     "cpx": "^1.5.0",
-    "cross-env": "^7.0.3"
+    "cross-env": "^7.0.3",
+    "docz": "^2.3.1",
+    "docz-plugin-css": "^0.11.0"
   }
 }
